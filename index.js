@@ -5,6 +5,12 @@ const bodyParser = require("koa-bodyparser");
 const fs = require("fs");
 const path = require("path");
 const { init: initDB, Counter } = require("./db");
+var crypto = require('crypto')
+var https = require('https')
+var http = require('http')
+var querystring = require('querystring')
+var processArgs = {}
+var nonceStr = 'vcgadsoqlap';
 
 const router = new Router();
 
@@ -51,7 +57,7 @@ router.get("/api/wx_openid", async (ctx) => {
 });
 
 var appid = 'wx875779ce30627de4'
-var secret = processArgs['secret']
+var secret
 
 // wx875779ce30627de4
 // 23d2c4a39ae964cccf54979a96c6de24
