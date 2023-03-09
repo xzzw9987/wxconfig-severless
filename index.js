@@ -89,6 +89,7 @@ function getAccessToken () {
 
 function getJSAPITicket () {
   // https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi
+  console.log('Run JSAPITicket')
   https.get({
       hostname: 'api.weixin.qq.com',
       path: '/cgi-bin/ticket/getticket?type=jsapi'
@@ -97,6 +98,7 @@ function getJSAPITicket () {
       var d = ''
       res.setEncoding('utf8')
       res.on('data', function (data) {
+        console.log(data)
         d += data
       })
       res.on('end', function () {
